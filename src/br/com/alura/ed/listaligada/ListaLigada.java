@@ -52,15 +52,28 @@ public class ListaLigada {
 		return posicao >= 0 && posicao < totalDeElementos;
 	}
 
-	private void removeDoComeco() {
+	public void removeDoComeco() {
 		if (this.totalDeElementos == 0)
-			throw new IllegalArgumentException("Não há o que remover.");
-		
+			throw new IllegalArgumentException("A lista está vazia.");
+
 		this.primeira = this.primeira.getProxima();
 		totalDeElementos--;
 
 		if (this.totalDeElementos == 0)
 			this.ultima = null;
+	}
+
+	public void removeDoFim() {
+		if (totalDeElementos == 0)
+			throw new IllegalArgumentException("A lista está vazia.");
+		else if (totalDeElementos == 1)
+			removeDoComeco();
+		else {
+			Celula penultima = pegaCelula(totalDeElementos - 2);
+			penultima.setProxima(null);
+			
+			totalDeElementos--;
+		}
 	}
 
 	public void remove(int posicao) {
@@ -83,15 +96,15 @@ public class ListaLigada {
 	public boolean contem(Object elemento) {
 		if (this.totalDeElementos == 0)
 			throw new IllegalArgumentException("A lista está vazia");
-		
+
 		Celula atual = this.primeira;
-		
+
 		for (int i = 0; i < totalDeElementos; i++) {
 			if (atual.getElemento() == elemento)
 				return true;
 			atual = atual.getProxima();
 		}
-		
+
 		return false;
 	}
 
