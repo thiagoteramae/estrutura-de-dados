@@ -70,7 +70,9 @@ public class ListaLigada {
 			removeDoComeco();
 		else {
 			Celula penultima = pegaCelula(totalDeElementos - 2);
+			
 			penultima.setProxima(null);
+			ultima = penultima;
 			
 			totalDeElementos--;
 		}
@@ -85,8 +87,8 @@ public class ListaLigada {
 			Celula anterior = pegaCelula(posicao - 1);
 			Celula vaiSerRemovida = pegaCelula(posicao);
 			anterior.setProxima(vaiSerRemovida.getProxima());
+			totalDeElementos--;
 		}
-		totalDeElementos--;
 	}
 
 	public int tamanho() {
