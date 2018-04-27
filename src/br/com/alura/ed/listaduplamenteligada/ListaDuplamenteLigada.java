@@ -53,7 +53,7 @@ public class ListaDuplamenteLigada {
 		}
 	}
 
-	private void removeDoComeco() {
+	public void removeDoComeco() {
 		if (this.totalDeElementos == 0)
 			throw new IllegalArgumentException("Não há o que remover.");
 
@@ -93,11 +93,11 @@ public class ListaDuplamenteLigada {
 			anterior.setProxima(proxima);
 
 			vaiSerRemovida = null;
+			totalDeElementos--;
 		}
-		totalDeElementos--;
 	}
 
-	private boolean posicaoOcupada(int posicao) {
+	public boolean posicaoOcupada(int posicao) {
 		return posicao >= 0 && posicao < totalDeElementos;
 	}
 
