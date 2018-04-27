@@ -81,6 +81,17 @@ public class ListaLigada {
 	}
 
 	public boolean contem(Object elemento) {
+		if (this.totalDeElementos == 0)
+			throw new IllegalArgumentException("A lista está vazia");
+		
+		Celula atual = this.primeira;
+		
+		for (int i = 0; i < totalDeElementos; i++) {
+			if (atual.getElemento() == elemento)
+				return true;
+			atual = atual.getProxima();
+		}
+		
 		return false;
 	}
 

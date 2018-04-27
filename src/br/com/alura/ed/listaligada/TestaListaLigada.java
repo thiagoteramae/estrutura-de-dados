@@ -26,5 +26,7 @@ public class TestaListaLigada {
 		listaLigada.remove(0);
 		System.out.println(listaLigada);
 		
+		System.out.println(listaLigada.contem("Maria"));
+		
 	}
 }
