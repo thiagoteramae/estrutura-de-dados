@@ -4,11 +4,16 @@ public class TestaFila {
 	public static void main(String[] args) {
 		Fila fila = new Fila();
 		
-		fila.adiciona("Thiago");
-		fila.adiciona("Joao");
-		System.out.println(fila);
+		fila.adiciona("Mauricio");
+		fila.adiciona("Paulo");
+		fila.adiciona("Guilherme");
 		
 		fila.remove();
+		
+		fila.adiciona("Joao");
+		
+		fila.remove();
+		
 		System.out.println(fila);
 	}
 }
