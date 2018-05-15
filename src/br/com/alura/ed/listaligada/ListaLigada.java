@@ -57,6 +57,7 @@ public class ListaLigada {
 			throw new IllegalArgumentException("A lista está vazia.");
 
 		this.primeira = this.primeira.getProxima();
+		this.ultima.setProxima(this.primeira);
 		totalDeElementos--;
 
 		if (this.totalDeElementos == 0)
@@ -70,10 +71,10 @@ public class ListaLigada {
 			removeDoComeco();
 		else {
 			Celula penultima = pegaCelula(totalDeElementos - 2);
-			
-			penultima.setProxima(null);
+
+			penultima.setProxima(this.primeira);
 			ultima = penultima;
-			
+
 			totalDeElementos--;
 		}
 	}
@@ -83,6 +84,8 @@ public class ListaLigada {
 			throw new IllegalArgumentException("Posicao inválida");
 		else if (posicao == 0) {
 			removeDoComeco();
+		} else if (posicao == this.totalDeElementos - 1) {
+			removeDoFim();
 		} else {
 			Celula anterior = pegaCelula(posicao - 1);
 			Celula vaiSerRemovida = pegaCelula(posicao);
