@@ -12,8 +12,10 @@ public class ListaDuplamenteLigada {
 			this.ultima = this.primeira;
 		} else {
 			Celula nova = new Celula(elemento, this.primeira);
+			nova.setAnterior(this.ultima);
 			this.primeira.setAnterior(nova);
 			this.primeira = nova;
+			this.ultima.setProxima(this.primeira);
 		}
 		this.totalDeElementos++;
 	}
@@ -23,10 +25,11 @@ public class ListaDuplamenteLigada {
 		if (totalDeElementos == 0) {
 			adicionaNoComeco(elemento);
 		} else {
-			Celula nova = new Celula(elemento, null);
+			Celula nova = new Celula(elemento, this.primeira);
 			this.ultima.setProxima(nova);
 			nova.setAnterior(this.ultima);
 			this.ultima = nova;
+			this.primeira.setAnterior(this.ultima);
 
 			this.totalDeElementos++;
 		}
@@ -58,6 +61,8 @@ public class ListaDuplamenteLigada {
 			throw new IllegalArgumentException("Não há o que remover.");
 
 		this.primeira = this.primeira.getProxima();
+		this.primeira.setAnterior(this.ultima);
+		this.ultima.setProxima(this.primeira);
 		totalDeElementos--;
 
 		if (this.totalDeElementos == 0)
@@ -71,8 +76,9 @@ public class ListaDuplamenteLigada {
 			removeDoComeco();
 		else {
 			Celula penultima = ultima.getAnterior();
-			penultima.setProxima(null);
-			ultima = penultima;
+			penultima.setProxima(this.primeira);
+			this.ultima = penultima;
+			this.primeira.setAnterior(this.ultima);
 			totalDeElementos--;
 		}
 	}
@@ -92,7 +98,6 @@ public class ListaDuplamenteLigada {
 			proxima.setAnterior(anterior);
 			anterior.setProxima(proxima);
 
-			vaiSerRemovida = null;
 			totalDeElementos--;
 		}
 	}
