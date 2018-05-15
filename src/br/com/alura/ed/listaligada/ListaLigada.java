@@ -14,9 +14,9 @@ public class ListaLigada {
 	}
 
 	public void adiciona(Object elemento) {
-		Celula nova = new Celula(elemento, null);
+		Celula nova = new Celula(elemento, this.primeira);
 		if (totalDeElementos == 0)
-			adicionaNoComeco(nova);
+			adicionaNoComeco(elemento);
 		ultima.setProxima(nova);
 		ultima = nova;
 		this.totalDeElementos++;
