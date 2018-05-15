@@ -2,30 +2,28 @@ package br.com.alura.ed.listaligada;
 
 public class TestaListaLigada {
 	public static void main(String[] args) {
-		ListaLigada listaLigada = new ListaLigada();
+		ListaLigada lista = new ListaLigada();
 
-		listaLigada.adicionaNoComeco("Thiago");
-		System.out.println(listaLigada);
-		listaLigada.adicionaNoComeco("Joao");
-		System.out.println(listaLigada);
-		listaLigada.adicionaNoComeco("Mario");
-		System.out.println(listaLigada);
-
-		listaLigada.adiciona("Flavio");
-		System.out.println(listaLigada);
-
-		listaLigada.adiciona(1, "Ronaldo");
-		System.out.println(listaLigada);
+		lista.adicionaNoComeco("Thiago");
+		System.out.println(lista);
 		
-		listaLigada.removeDoComeco();
-		System.out.println(listaLigada);
-		listaLigada.removeDoComeco();
-		System.out.println(listaLigada);
-		listaLigada.removeDoComeco();
-		System.out.println(listaLigada);
-		listaLigada.removeDoComeco();
-		System.out.println(listaLigada);
-		listaLigada.removeDoComeco();
-		System.out.println(listaLigada);
+		lista.adiciona("Maria");
+		System.out.println(lista);
+		
+		lista.adiciona("Reinaldo");
+		System.out.println(lista);
+		
+		lista.adiciona(1, "Joaquim");
+		System.out.println(lista);
+		
+		lista.removeDoFim();
+		System.out.println(lista);
+		
+		lista.remove(2);
+		System.out.println(lista);
+		
+		
+		System.out.println(lista.pegaCelula(1).getElemento());
+		System.out.println(lista.pegaCelula(1).getProxima().getElemento());
 	}
 }

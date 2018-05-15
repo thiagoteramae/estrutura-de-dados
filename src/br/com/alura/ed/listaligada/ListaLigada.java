@@ -14,12 +14,15 @@ public class ListaLigada {
 	}
 
 	public void adiciona(Object elemento) {
-		Celula nova = new Celula(elemento, this.primeira);
 		if (totalDeElementos == 0)
 			adicionaNoComeco(elemento);
-		ultima.setProxima(nova);
-		ultima = nova;
-		this.totalDeElementos++;
+		else {
+			Celula nova = new Celula(elemento, this.primeira);
+			ultima.setProxima(nova);
+			ultima = nova;
+			ultima.setProxima(this.primeira);
+			this.totalDeElementos++;
+		}
 	}
 
 	public void adiciona(int posicao, Object elemento) {
